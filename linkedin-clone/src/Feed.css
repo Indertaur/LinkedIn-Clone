@@ -1,0 +1,74 @@
+.feed{
+    display: flex;
+    flex: 0.6;
+    flex-direction: column;
+    margin: 0px 10px;
+    border: 1px solid lightgrey;
+    background-color:rgb(245,242,241);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.feedInput__container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.feedInput{
+    display: flex;
+    padding: 4px;
+    border: 1px solid rgb(173, 172, 172);
+    border-radius: 10px;
+}
+
+.feedInput:hover{
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+
+.feedInput > form  {
+    display: flex;
+    width: 100% !important;
+}
+
+.feedInput > form > input {
+    margin-left: 10px;
+    border: none;
+    flex: 1;
+    outline-width: 0;
+    font-size: 13px;
+    font-weight: bolder;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.feedInput> form> input:hover{
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+
+.feedInput > form > button {
+    display: none;
+}
+
+.feed__options{
+    display: flex;
+    margin-top: 12px ;
+}
+
+.feedoption{
+    display: flex;
+    flex: 1;
+    justify-content:space-between
+}

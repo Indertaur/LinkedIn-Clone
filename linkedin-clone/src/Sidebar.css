@@ -1,0 +1,117 @@
+.sidebar{
+    display:flex;
+    flex: 0.2;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    /* border: 1px solid lightgrey; */
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  
+}
+
+.sidebar__top{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    
+} 
+
+.sidebar__top > img{
+    width: 250px;
+    height: 100px;
+    object-fit: center;
+    margin-bottom: -40px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    border-bottom: none;
+    border-radius: 10px;
+}
+
+
+.sidebar__desc{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    border-bottom:  1px solid lightgrey;
+    margin-bottom:15px;
+}
+
+.sidebar__desc > h2{
+    font-size:24px;
+}
+
+.sidebar__desc > h4{
+    font-size:13px;
+    color: #757373;
+    font-weight:600;
+}
+
+.sidebar__stat{
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar__stat > p{
+    display: flex;
+    flex: 1;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #605b5b;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.sidebar__number{
+    font-size: 16px;
+    padding: 5px;
+}
+
+.sidebar__bottom{
+    margin-top: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px ;
+}
+
+.sidebar__bottom > p{
+    margin-top: 5px;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.sidebar__recent{
+    display: flex;
+    flex-direction: row;
+    color: grey;
+    font-size :13px;
+    font-weight: bolder;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.sidebar__recent:hover{
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.sidebar__hash{
+    margin-right: 5px;
+}

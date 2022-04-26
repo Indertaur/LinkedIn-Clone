@@ -1,0 +1,30 @@
+.Feedoptions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666666
+}
+
+.Feedoptions:hover{
+    background-color: #F0F0F0;
+    border: 1px solid none;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    transition:0.3s;
+    -webkit-transition:0.3s;
+    -moz-transition:0.3s;
+    -ms-transition:0.3s;
+    -o-transition:0.3s;
+    font-weight:600;
+}
+
+.icon{
+    margin-right: 10px;
+}
