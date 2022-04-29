@@ -17,4 +17,7 @@
     font-size: 12px;
     font-weight:400;
     align-content: center;
+    justify-content: center;
+    position: relative;
 }
+

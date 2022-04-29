@@ -1,0 +1,21 @@
+.dropdown{
+    display: flex;
+    align-items: center;
+}
+
+.dropdown__button{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+    border: none;
+    margin-top: 6px;
+    
+}
+
+.dropdown__button:hover{
+    cursor: pointer;
+}

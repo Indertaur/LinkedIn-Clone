@@ -35,17 +35,25 @@
 
 .post__body{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 10px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
 }
-
 .post__body > p{
-    font-size:14px;
+    font-size:16px;
 }
-
-
 .post__options{
     display: flex;
     justify-content:space-evenly;
     padding: 5px;
+}
+
+.delete__button{
+    color: rgb(244, 73, 73);
+}
+.delete__button:hover{
+    color: rgb(236, 45, 45);
+    cursor: pointer;
 }

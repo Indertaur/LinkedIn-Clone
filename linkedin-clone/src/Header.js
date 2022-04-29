@@ -4,7 +4,7 @@ import "./Header.css"
 import SearchIcon from '@mui/icons-material/Search';
 import HeaderOptions from './HeaderOptions';
 import HomeIcon from '@mui/icons-material/Home';
-import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';import WorkIcon from '@mui/icons-material/Work';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Avatar from '@mui/material/Avatar';
@@ -12,8 +12,18 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import { logout } from './features/userSlice';
+import { auth } from './firebase';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+    const dispatch =  useDispatch();
+    
+    const AppSignOut = () => {
+        dispatch(logout())
+        auth.signOut();
+    }
+    
     return (
         <div className="header">
             <div className="header__left">
@@ -42,8 +52,8 @@ const Header = () => {
                 <HeaderOptions Icon={PeopleAltIcon} title="Network" />
                 <HeaderOptions Icon={MailOutlineIcon} title="Messaging" />
                 <HeaderOptions Icon={WorkIcon} title="Jobs" />
-                <HeaderOptions Icon={CircleNotificationsIcon} title="Notification" />
-                <HeaderOptions Avatar={Avatar} title="Akanksha" />
+                <HeaderOptions Icon={AccountBoxIcon} title="Profile" />
+                <HeaderOptions onClick={AppSignOut} Avatar={Avatar} title="Sign Out" />
             </div>
         </div>
     )

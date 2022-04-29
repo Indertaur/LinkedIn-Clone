@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef, useState } from 'react'
 import "./Post.css"
 import Avatar from '@mui/material/Avatar';
 import Feedoption from './Feedoption';
@@ -6,12 +6,40 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
 import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
+import { selectUser } from './features/userSlice';
+import { useSelector } from 'react-redux';
+import { db } from './firebase'
+import DeleteIcon from '@mui/icons-material/Delete';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import './Modal.css'
+import { useSnackbar } from 'notistack';
 
-const Post = ({ name, description, message }) => {
+
+const Post = forwardRef(({ id, name, description, message, }, ref) => {
+    //  user
+    const user = useSelector(selectUser)
+    // Toggle state
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    //Snackbar
+    const { enqueueSnackbar } = useSnackbar();
+
+    const deleteHandler = () => (
+
+        db.collection('posts').doc(id).delete().then(() => {
+            enqueueSnackbar(`Your Post is successfully deleted`, { variant: "success" }
+            );
+        })
+
+    )
+
     return (
-        <div className="post">
+        <div ref={ref} className="post">
             <div className="post__header">
-                <Avatar src="https://media-exp1.licdn.com/dms/image/D5635AQF7egpX9uycIA/profile-framedphoto-shrink_800_800/0/1650082181605?e=2147483647&v=beta&t=UY9nL24ztN0BRvNaEBAAOH-bXrCSHN_b_bYXTM740G4" />
+                <Avatar src={user.profileUrl}> {user.email[0]} </Avatar>
                 <div className="post__info">
                     <h4>{name}</h4>
                     <p >{description}</p>
@@ -19,6 +47,25 @@ const Post = ({ name, description, message }) => {
             </div>
             <div className="post__body">
                 <p>{message}</p>
+                <span onClick={handleOpen} type="submit" className="delete__button"> <DeleteIcon /> </span>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                >
+                    <Box className="style">
+                        <Typography variant="h6" component="h2">
+                            Are you sure you want to delete this post ?
+                        </Typography>
+                        <div className="buttons">
+                            <button className="button" onClick={deleteHandler}>
+                                Confirm Delete
+                            </button>
+                            <button className="button" onClick={handleClose}>
+                                Cancel
+                            </button>
+                        </div>
+                    </Box>
+                </Modal>
             </div>
             <div className="post__options">
                 <Feedoption Icon={ThumbUpIcon} optionName="Like" style={{ color: '#70B5F8' }} />
@@ -28,6 +75,6 @@ const Post = ({ name, description, message }) => {
             </div>
         </div>
     )
-}
+})
 
 export default Post
